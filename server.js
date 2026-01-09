@@ -12,7 +12,17 @@ const authRequired = require('./middleware/authMiddleware');
 
 const app = express();
 
-app.use(cors());
+
+
+app.use(cors({
+    origin: [
+        "http://localhost:5001",
+        "https://btpos.vercel.app" 
+    ],
+    credentials: true 
+}));
+
+// app.use(cors());
 app.use(express.json());
 
 // Public auth routes
